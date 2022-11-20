@@ -23,6 +23,7 @@ public class Main {
         for (int i = 0; i < 30; i++) {
             final int number = i;
             Thread.sleep(10);
+
             while(inProgress.get() >= 3){
                 Thread.sleep(10);
             }
@@ -42,9 +43,7 @@ public class Main {
                 return null;
             });
         }
-        while (executor.getCompletedTaskCount() < 30){
-            executor.shutdown();
-        }
+        executor.shutdown();
         System.out.println("Complete!");
     }
 }
